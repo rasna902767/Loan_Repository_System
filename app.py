@@ -16,8 +16,6 @@ MODEL_PATH = os.path.join(BASE_DIR, "model.pkl")
 with open(MODEL_PATH, "rb") as f:
     model = pickle.load(f)
 
-# Load trained model
-model = pickle.load(open("model.pkl", "rb"))
 
 # Model accuracy
 MODEL_ACCURACY = 84.0
