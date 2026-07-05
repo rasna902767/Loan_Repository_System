@@ -1,8 +1,20 @@
-from flask import Flask, render_template, request
+import os
 import pickle
 import pandas as pd
+from flask import Flask, render_template, request
 
-app = Flask(__name__)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+app = Flask(
+    __name__,
+    template_folder=os.path.join(BASE_DIR, "templates"),
+    static_folder=os.path.join(BASE_DIR, "static"),
+)
+
+MODEL_PATH = os.path.join(BASE_DIR, "model.pkl")
+
+with open(MODEL_PATH, "rb") as f:
+    model = pickle.load(f)
 
 # Load trained model
 model = pickle.load(open("model.pkl", "rb"))
