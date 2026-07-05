@@ -1,0 +1,12 @@
+import matplotlib.pyplot as plt
+
+counts=df['Approved'].value_counts()
+
+plt.figure(figsize=(5,5))
+
+plt.pie(
+counts,
+labels=["Rejected","Approved"],
+autopct="%1.1f%%")
+
+plt.savefig("plots/class_distribution.png")
